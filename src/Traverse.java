@@ -38,8 +38,9 @@ public class Traverse {
   public static <T> void dfs(Vertex<T> vertex) {
     var visited = new HashSet<Vertex<T>>(); // creating a new HashSet<>() to store the visits
     dfs(vertex, visited); // calling the below method, since this is a helper method.
+    // dfs(vertex, new HashSet<Vertex<T>>()); -- this could be used as well to make it simplier
   }
-  
+
   // Helper method of dfs - Depth First Search
   // Depth First Search method - Like Pre-order, In-order, and Post-order traversals in Binary Trees
   // Vertex<T> vertex = is the main the node (vertice)
