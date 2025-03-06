@@ -29,14 +29,22 @@ public class Traverse {
     v23.neighbors = new ArrayList<>(List.of());
     v67.neighbors = new ArrayList<>(List.of(v91));
 
-    Set<Vertex<Integer>> visited = new HashSet<>();
-    dfs(v7, visited);
+    dfs(v7);
+    System.out.println("************************");
+    dfs(v7);
   }
 
+  // This is Method Overloading
+  public static <T> void dfs(Vertex<T> vertex) {
+    var visited = new HashSet<Vertex<T>>(); // creating a new HashSet<>() to store the visits
+    dfs(vertex, visited); // calling the below method, since this is a helper method.
+  }
+  
+  // Helper method of dfs - Depth First Search
   // Depth First Search method - Like Pre-order, In-order, and Post-order traversals in Binary Trees
   // Vertex<T> vertex = is the main the node (vertice)
   // Set<Vertex<T>> visited = takes the next node and stores it, since Set can help remove duplicates
-  public static <T> void dfs(Vertex<T> vertex, Set<Vertex<T>> visited) {
+  private static <T> void dfs(Vertex<T> vertex, Set<Vertex<T>> visited) {
     if (vertex == null) return; // checking to see there are any null nodes (vertices)
     if (visited.contains(vertex)) return; // checking to see if vertex and the visited contains the same value (data) then returns back.
 
@@ -50,7 +58,5 @@ public class Traverse {
       dfs(neighbor, visited); // placing the current node/vertex as "neighbor", 
                               // then we recurse back to the top of the method to add the next duplicated value into the Set "visited"
     }
-
   }
-
 }
